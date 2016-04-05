@@ -14,7 +14,6 @@ The Blinky program is available for target(s):
 Note: CMSIS-DAP is used as debugger (on micro USB connector SDAUSB (J26))
 hhhhh
 kkkk
-
-
+1223456
 
 
