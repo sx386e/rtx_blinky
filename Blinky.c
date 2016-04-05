@@ -15,6 +15,7 @@
 #define osObjectsPublic                     // define objects in main module
 #include "osObjects.h"                      // RTOS object definitions
 
+// test
 
 #include "cmsis_os.h"
 #include "board.h"
