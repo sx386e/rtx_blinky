@@ -1,0 +1,16 @@
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\startup.c
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\startup.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\fsl_device_registers.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12/include/MK64F12.h
+.\flash\startup.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
+.\flash\startup.o: D:\mdk\blinky-k64f1\addon_mdk\Boards\Freescale\FRDM-K64F\Blinky\RTE\Device\MK64FN1M0VLL12\system_MK64F12.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12/include/MK64F12_extension.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12/include/MK64F12.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12/include/fsl_bitaccess.h
+.\flash\startup.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\flash\startup.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_SDK_DFP\2.2.0\platform\devices\MK64F12/include/MK64F12_features.h

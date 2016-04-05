@@ -1,0 +1,6 @@
+~graph.html,
+~index.htm,
+~jquery.min.js.gz,
+~smoothie.js.gz,
+~loc.cgx 
+TO web.c RTE PRINT ROOT(Web)

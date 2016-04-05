@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script language="javascript" type="text/javascript" src="jquery.min.js.gz"></script>
+	<script type="text/javascript">
+      $(function() {
+      var json_sample = [];
+        function getData() {
+          $.getJSON("loc.cgx", function(loc) { json_sample = loc; });
+          $('#val_x').val(json_sample.x);
+          $('#val_y').val(json_sample.y);
+          $('#val_z').val(json_sample.z);
+		  $('#val_ax').val(json_sample.ax);
+          $('#val_ay').val(json_sample.ay);
+          $('#val_az').val(json_sample.az);
+        }
+        function update() {
+          getData();
+          setTimeout(update, 300);
+        }
+        update();
+		      });
+    </script>
+	<style>
+    html *
+   {
+      font-family: Verdana  !important;
+   }
+    </style>
+  </head>
+  <body>
+    <h2>MEMS FRDM-K64F</h2>
+    <p>Magnetometer values are:
+    x = <input id="val_x" type="text" value="">,
+    y = <input id="val_y" type="text" value="">,
+    z = <input id="val_z" type="text" value=""></p>
+	<p>Accelerometer values are:
+    x = <input id="val_ax" type="text" value="">,
+    y = <input id="val_ay" type="text" value="">,
+    z = <input id="val_az" type="text" value=""></p>
+	</br>
+	<a href="graph.html" target=_blank>Graphical View</a>
+	
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+<script type="text/javascript" src="smoothie.js.gz"></script>
+<script type="text/javascript" src="jquery.min.js.gz"></script>
+<style>
+html *
+{
+   font-family: Verdana  !important;
+}
+</style>
+</head>
+<body>
+<h2>Magnetometer Realtime Data</h2>
+<table>
+<td>
+<canvas id="magcanvas" width="600" height="200"></canvas>
+</td>
+<td>
+<p style="color:red">x</p>
+<p style="color:green">y</p>
+<p style="color:blue">z</p>
+</td>
+</table>
+</br>
+<h2>Accelerometer Realtime Data</h2>
+<table>
+<td>
+<canvas id="acccanvas" width="600" height="200"></canvas>
+</td>
+<td>
+<p style="color:red">x</p>
+<p style="color:green">y</p>
+<p style="color:blue">z</p>
+</td>
+</table>
+<p>
+Update Interval in milliseconds:
+<input id="updateInterval" type="text" value="" style="text-align: right; width:5em">
+</p>
+
+<script>
+
+
+   var updateInterval = 300;
+   $("#updateInterval").val(updateInterval).change(function () {
+	var v = $(this).val();
+	if (v && !isNaN(+v)) {
+	  updateInterval = +v;
+	    if (updateInterval < 1) {
+			updateInterval = 1;
+		} else if (updateInterval > 2000) {
+			updateInterval = 2000;
+		}
+		$(this).val("" + updateInterval);
+		}
+	});
+
+
+  var smoothie_mag = new SmoothieChart({scaleSmoothing:0.01,maxValue:800,minValue:-800});
+  var smoothie_acc = new SmoothieChart({scaleSmoothing:0.01,maxValue:2000,minValue:-2000});
+  smoothie_mag.streamTo(document.getElementById("magcanvas"), 10);
+  smoothie_acc.streamTo(document.getElementById("acccanvas"), 10);
+  
+   // Data
+   var linex = new TimeSeries();
+   var liney = new TimeSeries();
+   var linez = new TimeSeries();
+   var lineax = new TimeSeries();
+   var lineay = new TimeSeries();
+   var lineaz = new TimeSeries();
+
+   
+  // Add a random value to each line every x milliseconds
+   var timer_callback = function(){ 
+   clearInterval(interval);
+   $.getJSON("loc.cgx", function(loc) { 
+	    linex.append(new Date().getTime(), loc.x);		
+		liney.append(new Date().getTime(), loc.y);    
+		linez.append(new Date().getTime(), loc.z);    
+        lineax.append(new Date().getTime(), loc.ax);		
+		lineay.append(new Date().getTime(), loc.ay);    
+		lineaz.append(new Date().getTime(), loc.az);    
+		});
+		interval = setInterval(timer_callback, updateInterval);
+   };
+   var interval = setInterval(timer_callback, updateInterval);
+   
+   
+   
+
+  // Add to SmoothieChart
+  smoothie_mag.addTimeSeries(linex, { strokeStyle:'rgb(0, 255, 0)', fillStyle:'rgba(0, 255, 0, 0.4)', lineWidth:2 });
+  smoothie_mag.addTimeSeries(liney, { strokeStyle:'rgb(0, 0, 255)', fillStyle:'rgba(0, 0, 255, 0.4)', lineWidth:2 });
+  smoothie_mag.addTimeSeries(linez, { strokeStyle:'rgb(255, 0, 0)', fillStyle:'rgba(255, 0, 0, 0.4)', lineWidth:2 });
+  smoothie_acc.addTimeSeries(lineax, { strokeStyle:'rgb(55, 255, 0)', fillStyle:'rgba(55, 255, 0, 0.4)', lineWidth:2 });
+  smoothie_acc.addTimeSeries(lineay, { strokeStyle:'rgb(0, 55, 255)', fillStyle:'rgba(0, 55, 255, 0.4)', lineWidth:2 });
+  smoothie_acc.addTimeSeries(lineaz, { strokeStyle:'rgb(255, 0, 55)', fillStyle:'rgba(255, 0, 55, 0.4)', lineWidth:2 });
+</script>
+</body>

@@ -1,0 +1,20 @@
+The 'Blinky' project is a simple CMSIS RTOS based example for 
+Freescale 'MK64FN1M0VLL12' microcontroller on Freescale 'FRDM-K64F' Board.
+Compliant to Cortex Microcontroller Software Interface Standard (CMSIS v2.0).
+
+Example functionality:
+ - RGB LED is blinking
+ - blinking is paused while holding down the INT1 button
+
+
+The Blinky program is available for target(s):
+
+  MK64FN1M Flash: runs from Internal Flash located on chip
+
+Note: CMSIS-DAP is used as debugger (on micro USB connector SDAUSB (J26))
+hhhhh
+kkkk
+
+
+
+
